@@ -7,8 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const link = process.env.DATABASE_URL; // || 'mysql://9nywjlt81hfjwk4fsmmu:pscale_pw_rIoexgILZbHIdjBN1RJ8ZshX45TvzwvHiglzodmKaGe@aws.connect.psdb.cloud/waf-snake?ssl={"rejectUnauthorized":true}'
-  
+const link = process.env.DATABASE_URL; // || 'mysql://xptc6de2owk68w6f55qx:pscale_pw_qDh16eiKSkvd8Q7obP3TJzfQPPEmN023XnC5lF3yQIY@aws.connect.psdb.cloud/waf-snake?ssl={"rejectUnauthorized":false}'
+
 const db = mysql.createConnection(link);
 
 app.post("/addPlayer", (req, res) => {
