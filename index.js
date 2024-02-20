@@ -1,15 +1,13 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const link =
-  'mysql://6fwc6g7ju41re6tsmf2s:pscale_pw_MAqBOCIueE1wb8R7kXVd5hOCzXVasAR2AL7fgqeSo3R@aws.connect.psdb.cloud/waf-snake?ssl={"rejectUnauthorized":true}';
-
-const db = mysql.createConnection(link);
+const db = mysql.createConnection(process.env.DATABASE_URL);
 
 app.post("/addPlayer", (req, res) => {
   let { player_name, count } = req.body;
@@ -39,5 +37,5 @@ app.delete("/clearTable", (req, res) => {
 });
 
 app.listen("5000", () => {
-  console.log("Server statred on 5000 port");
+  console.log("Server started on 5000 port");
 });
