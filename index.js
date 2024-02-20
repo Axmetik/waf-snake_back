@@ -7,7 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection(process.env.DATABASE_URL);
+const link = process.env.DATABASE_URL; // || 'mysql://ak9t9dosqhu54cpx0q44:pscale_pw_GEp9Y6S447U0pvsYZ3TvJk9WjpPWxIafLXSt3PFXBqb@aws.connect.psdb.cloud/waf-snake?ssl={"rejectUnauthorized":true}'
+
+const db = mysql.createConnection(link);
 
 app.post("/addPlayer", (req, res) => {
   let { player_name, count } = req.body;
