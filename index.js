@@ -7,9 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const link = process.env.DATABASE_URL;
-const DATABASE_URL='mysql://uahb1sdk8nuq6r1i4npt:pscale_pw_5kNFSrKW99MZ7OhS9rIDNlVs6WydLGfPfQE9rGjafyI@aws.connect.psdb.cloud/waf-snake?ssl={"rejectUnauthorized":true}'
-  
+const link = process.env.DATABASE_URL;  
 const db = mysql.createConnection(link);
 
 app.post("/addPlayer", (req, res) => {
